@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JustStreamIt</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="banniere">
+        <div class="logo">
+          <img class="img-logo"
+          src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png"
+          alt="logo JustStreamIt" id="logo">
+        </div>
+        <h1>Vidéo à la demande</h1>
+      </div>
+    </header>
+    <main>
+      <!-- Meilleur film -->
+      <h2><strong>Meilleur film</strong></h2>
+      <section class="card-meilleurFilm">
+        <img id="imageMeilleurFilm" src="https://picsum.photos/seed/picsum/200/300" alt="Film en vedette" />
+        <div class="meilleurFilmDetails">
+          <h2 class="meilleurFilmTitle">Nom du film</h2>
+          <p class="meilleurFilmDesc">Petit descriptif du film...</p>
+          <button id="bestFilmDetailsBtn">Détails</button>
+        </div>
+      </section>
+
+      <!-- Films les mieux notés -->
+      <h2><strong>Films les mieux notés</strong></h2>
+      <section class="filmsMieuxNote film-grid" id="bestRatedSection">
+        <!-- Les films seront insérés dynamiquement -->
+      </section>
+      <button class="voir-plus" data-section="bestRatedSection">Voir plus</button>
+      <button class="voir-moins" data-section="bestRatedSection" style="display:none;">Voir moins</button>
+
+      <!-- Catégorie 1: Comédies -->
+      <h2><strong>Comédies</strong></h2>
+      <section class="comedy film-grid" id="comedySection">
+        <!-- Films de comédies insérés dynamiquement -->
+      </section>
+      <button class="voir-plus" data-section="comedySection">Voir plus</button>
+      <button class="voir-moins" data-section="comedySection" style="display:none;">Voir moins</button>
+
+      <!-- Catégorie 2: Familles -->
+      <h2><strong>Familles</strong></h2>
+      <section class="family film-grid" id="familySection">
+        <!-- Films de familles insérés dynamiquement -->
+      </section>
+      <button class="voir-plus" data-section="familySection">Voir plus</button>
+      <button class="voir-moins" data-section="familySection" style="display:none;">Voir moins</button>
+
+      <!-- Autres: Dropdown pour choisir une catégorie -->
+      <div class="flex-category">
+        <h2><strong>Autres:</strong></h2>
+        <div class="dropdown">
+          <button class="dropbtn">Category</button>
+          <div class="dropdown-content" id="genreDropdown">
+            <!-- Les genres seront insérés dynamiquement -->
+          </div>
+        </div>
+      </div>
+      <section class="autres film-grid" id="otherSection">
+        <!-- Films d'une catégorie sélectionnée -->
+      </section>
+      <button class="voir-plus" data-section="otherSection">Voir plus</button>
+      <button class="voir-moins" data-section="otherSection" style="display:none;">Voir moins</button>
+    </main>
+
+    <!-- Modal de détail du film -->
+    <div id="modal" class="modal">
+      <div class="modal_content">
+        <a href="#" class="modal_close" id="modal_close">&times;</a>
+        <img id="modal_image" src="" alt="Image du film" />
+        <h1 id="modal_title"></h1>
+        <p id="modal_genres"></p>
+        <p id="modal_date"></p>
+        <p id="modal_rated"></p>
+        <p id="modal_imdb_score"></p>
+        <p id="modal_director"></p>
+        <p id="modal_actors"></p>
+        <p id="modal_duration"></p>
+        <p id="modal_countries"></p>
+        <p id="modal_gross"></p>
+        <p id="modal_description"></p>
+      </div>
+    </div>
+  </body>
+</html>
