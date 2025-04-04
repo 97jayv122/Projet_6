@@ -50,15 +50,15 @@ function openFilmModal(filmUrl) {
     document.getElementById("modal_image").src = film.image_url;
     document.getElementById("modal_title").textContent = film.title;
     document.getElementById("modal_genres").textContent = "Genres: " + film.genres.join(", ");
-    document.getElementById("modal_date").textContent = "Date de sortie: " + film.date_published;
+    document.getElementById("modal_date").textContent = "Date de sortie: " + film.year;
     document.getElementById("modal_rated").textContent = "Classification: " + film.rated;
-    document.getElementById("modal_imdb_score").textContent = "Score IMDB: " + film.imdb_score;
-    document.getElementById("modal_director").textContent = "Réalisateur: " + film.director;
-    document.getElementById("modal_actors").textContent = "Acteurs: " + film.actors;
+    document.getElementById("modal_imdb_score").textContent = "Score IMDB: " + film.imdb_score + "/10";
+    document.getElementById("modal_director").textContent = "Réalisateur: " + film.directors.join(", ");
+    document.getElementById("modal_actors").textContent = "Acteurs: " + film.actors.join(", ");
     document.getElementById("modal_duration").textContent = "Durée: " + film.duration + " min";
     document.getElementById("modal_countries").textContent = "Pays: " + film.countries.join(", ");
     document.getElementById("modal_gross").textContent = "Recettes: " + (film.worldwide_gross_income || "N/A");
-    document.getElementById("modal_description").textContent = film.description;
+    document.getElementById("modal_description").textContent = film.long_description;
     document.getElementById("modal").style.display = "flex";
   });
 }
