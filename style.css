@@ -75,6 +75,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  margin: 0 auto;
   z-index: 1;
 }
 
@@ -108,7 +109,7 @@ main img:hover {
   text-align: end;
   grid-area: button;
   color: white;
-  background-color: rgb(255, 81, 0);
+  background-color: rgb(250, 11, 11, 1);
   border-radius: 25px;
   padding: 20px 30px 20px 30px;
   font-size: large;
@@ -135,6 +136,15 @@ main img {
   gap: 20px;
 }
 
+main button {
+  background-color: rgb(250, 11, 11, 1);
+  border-radius: 25px;
+  color: white;
+  font-size: large;
+  padding: 5px 50px 5px 50px;
+  border: none;
+  margin: 10px auto;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -228,7 +238,6 @@ main img {
 }
 
 .film-hover {
- 
   position: absolute;
   top: 20%;
   left: 0;
@@ -295,45 +304,62 @@ main img {
 
 @media (min-width: 768px) and (max-width: 991px) {
   body {
-    margin: 10px 60px;
+    width: 620px;
+    margin: 10px auto;
+  }
+
+
+  .banniere h1 {
+    font-size: 40px;
+    margin-left: 30px;
   }
 
   .film-grid {
     grid-template-columns: repeat(2, 1fr);
+    width: 620px;
+    height: auto;
+    gap: 20px;
   }
   .film {
-    width: 300px;
-    height: 300px;
+    width: 290px;
+    height: 285px;
   }
 
   #imageMeilleurFilm {
-    width: 100%;
-    padding: 15px 20px;
+    width: 170px;
+    height: 250px;
+    margin: 10px 15px;
   }
 
   body h2 {
-    font-size: 2em;
+    font-size: 40px;
     padding: 30px 0px 20px 0px;
   }
 
   .card-meilleurFilm h2 {
-    font-size: 2em;
-    padding: 20px 15px 0 20px;
+    font-size: 40px;
+    font-weight: 700;
+    padding: 5px 15px 0 10px;
   }
 
   .card-meilleurFilm p {
-    font-size: 1.4em;
-    padding: 0 15px 0 20px;
+    font-size: 24px;
+    font-weight: 200;
+    padding: 0 15px 0 10px;
     margin: 0;
   }
 
+  .to-end {
+    position: relative;
+    display: block;
+    width: 135px;
+    left: 10px;
+  }
   .card-meilleurFilm button {
-    /* display: block; */
     padding: 15px 30px 15px 30px;
-    font-size: large;
+    font-size: 20px;
     border: none;
-    margin-bottom: 10px;
-    margin: 0 auto 15px auto;
+    /* margin: 0; */
   }
 }
 
@@ -345,8 +371,9 @@ main img {
   }
 
   #imageMeilleurFilm {
-    width: 100%;
-    padding: 15px 15px 0px 15px;
+    width: 300px;
+    height: 240px;
+    margin: 7px 10px 0px 10px;
   }
 
   .banniere h1 {
@@ -358,26 +385,32 @@ main img {
   }
 
   .film-grid {
+    width: 330px;
+    height: auto;
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
   body h2 {
-    font-size: 2em;
+    font-size: 32px;
     text-align: center;
     padding: 20px 0px 10px 0px;
   }
 
   .card-meilleurFilm h2 {
+    font-size: 32px;
     text-align: left;
     padding: 15px 15px 0px 15px;
   }
 
   body {
-    margin: 10px 50px;
+    width: 330px;
+    margin: 10px auto;
   }
 
   .card-meilleurFilm p {
+    font-size: 16px;
+    font-weight: 200;
     padding: 0px 15px 20px 15px;
   }
 
@@ -390,7 +423,7 @@ main img {
     margin: 0 auto 15px auto;
   }
   .film {
-    width: 350px;
-    height: 350px;
+    width: 330px;
+    height: 320px;
   }
 }
