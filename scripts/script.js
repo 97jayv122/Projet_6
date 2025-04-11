@@ -7,7 +7,7 @@ function getData(apiUrl) {
 function fillFilmGrid(containerId, data) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
-  data.results.forEach((film) => {
+  data.forEach((film) => {
     // Création de l'élément film
     const filmDiv = document.createElement("div");
     filmDiv.className = "film";
@@ -49,32 +49,36 @@ function openFilmModal(filmUrl) {
   getData(filmUrl).then((film) => {
     document.getElementById("modal_image").src = film.image_url;
     document.getElementById("modal_title").textContent = film.title;
-    document.getElementById("modal_genres").textContent = "Genres: " + film.genres.join(", ");
-    document.getElementById("modal_date").textContent = "Date de sortie: " + film.year;
-    document.getElementById("modal_rated").textContent = "Classification: " + film.rated;
-    document.getElementById("modal_imdb_score").textContent = "Score IMDB: " + film.imdb_score + "/10";
-    document.getElementById("modal_director").textContent = "Réalisateur: " + film.directors.join(", ");
-    document.getElementById("modal_actors").textContent = "Acteurs: " + film.actors.join(", ");
-    document.getElementById("modal_duration").textContent = "Durée: " + film.duration + " min";
-    document.getElementById("modal_countries").textContent = "Pays: " + film.countries.join(", ");
-    document.getElementById("modal_gross").textContent = "Recettes: " + (film.worldwide_gross_income || "N/A");
+    // document.getElementById("modal_genres").textContent = "Genres: " + film.genres.join(", ");
+    document.getElementById("modal_date_and_genre").textContent = film.year + "-" +film.genres.join(", ");
+    // document.getElementById("modal_rated").textContent = "Classification: " + ;
+    document.getElementById("modal_imdb_score").textContent = "IMDB score : " + film.imdb_score + "/10";
+    document.getElementById("modal_director").innerHTML = `${film.directors.join(", ")}`;
+    document.getElementById("modal_actors").textContent = film.actors.join(", ");
+    document.getElementById("modal_duration_countries").textContent = film.duration + " minutes (" + film.countries.join("/ ") + ")";
+    // document.getElementById("modal_countries").textContent = "Pays: " + film.countries.join(", ");
+    document.getElementById("modal_gross").textContent = "Recettes aux box-office: $" + (film.worldwide_gross_income || "N/A");
     document.getElementById("modal_description").textContent = film.long_description;
     document.getElementById("modal").style.display = "flex";
   });
 }
 
-// Fermer la modale
+// Fermer la modale tablette et mobile
 document.getElementById("modal_close").addEventListener("click", (e) => {
   e.preventDefault();
   document.getElementById("modal").style.display = "none";
 });
 
+// Fermer la modale desktop
+document.getElementById("modal_close_button").addEventListener("click", (e) => {
+  document.getElementById("modal").style.display = "none";
+})
 // Charger le meilleur film
 getData(urlMovieBestScore)
   .then((data) => {
     // Remplir la section "Films les mieux notés"
-    fillFilmGrid("bestRatedSection", data);
-
+    fillFilmGrid("bestRatedSection", data.results.slice(1));
+    
     // Charger le détail du meilleur film (premier film)
     const bestFilmUrl = data.results[0].url;
     return getData(bestFilmUrl);
@@ -93,12 +97,12 @@ getData(urlMovieBestScore)
 
 // Charger les films pour les comédies
 getData(urlComedyFilm).then((dataComedy) => {
-  fillFilmGrid("comedySection", dataComedy);
+  fillFilmGrid("comedySection", dataComedy.results);
 });
 
 // Charger les films pour les familles
 getData(urlFamilyFilm).then((dataFamily) => {
-  fillFilmGrid("familySection", dataFamily);
+  fillFilmGrid("familySection", dataFamily.results);
 });
 
 // Fonction pour appliquer la visibilité des films selon la taille d'écran
@@ -171,7 +175,7 @@ getData(urlListeGenreFilm).then((dataGenres) => {
       // Construire l'URL pour le genre sélectionné
       const urlOther = url + "titles/?genre=" + genre.name + "&sort_by=-imdb_score,-votes&page_size=6";
       getData(urlOther).then((dataOther) => {
-        fillFilmGrid("otherSection", dataOther);
+        fillFilmGrid("otherSection", dataOther.results);
       });
     });
     dropdown.appendChild(a);

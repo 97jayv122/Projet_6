@@ -31,7 +31,6 @@
           <h2 class="meilleurFilmTitle">Nom du film</h2>
           <p class="meilleurFilmDesc">Petit descriptif du film...</p>
           <div class="to-end">
-
             <button id="bestFilmDetailsBtn">Détails</button>
           </div>
         </div>
@@ -65,7 +64,7 @@
       <div class="flex-category">
         <h2><strong>Autres:</strong></h2>
         <div class="dropdown">
-          <select class="dropbtn">Category</select>
+          <select class="dropbtn">Categorie:</select>
           <div class="dropdown-content" id="genreDropdown">
             <!-- Les genres seront insérés dynamiquement -->
           </div>
@@ -82,18 +81,25 @@
     <div id="modal" class="modal">
       <div class="modal_content">
         <a href="#" class="modal_close" id="modal_close">&times;</a>
+        <div class="modal_header">
+          <h1 id="modal_title"></h1>
+          <p id="modal_date_and_genre"></p>
+          <p id="modal_duration_countries"></p>
+          <p id="modal_imdb_score"></p>
+          <p id="modal_gross"></p>
+          <p class="made_by">Réalisé par:</p>
+          <p id="modal_director"></p>
+        </div>
         <img id="modal_image" src="" alt="Image du film" />
-        <h1 id="modal_title"></h1>
-        <p id="modal_genres"></p>
-        <p id="modal_date"></p>
-        <p id="modal_rated"></p>
-        <p id="modal_imdb_score"></p>
-        <p id="modal_director"></p>
-        <p id="modal_actors"></p>
-        <p id="modal_duration"></p>
-        <p id="modal_countries"></p>
-        <p id="modal_gross"></p>
+        <!-- <p id="modal_genres"></p> -->
+        <!-- <p id="modal_rated"></p> -->
+        <!-- <p id="modal_countries"></p> -->
         <p id="modal_description"></p>
+        <div class="modal-actors">
+          <p class="with">Avec:</p>
+          <p id="modal_actors"></p>
+        </div>
+        <button id="modal_close_button">Fermer</button>
       </div>
     </div>
   </body>
