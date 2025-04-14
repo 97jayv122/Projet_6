@@ -165,19 +165,23 @@ window.addEventListener("resize", () => {
 
 // Charger et remplir le dropdown avec les genres disponibles
 getData(urlListeGenreFilm).then((dataGenres) => {
-  const dropdown = document.getElementById("genreDropdown");
+  const genreSelect = document.getElementById("genreDropdown");
   dataGenres.results.forEach((genre) => {
-    const a = document.createElement("a");
-    a.href = "#";
-    a.textContent = genre.name;
-    a.addEventListener("click", (e) => {
-      e.preventDefault();
+    const option = document.createElement("option");
+    option.value = genre.name;
+    option.textContent = genre.name;
+    genreSelect.appendChild(option);
+  });
+
+  // Écoute de l'événement change sur le select
+  genreSelect.addEventListener("change", (e) => {
+    const selectedGenre = e.target.value;
+    if (selectedGenre) {
       // Construire l'URL pour le genre sélectionné
-      const urlOther = url + "titles/?genre=" + genre.name + "&sort_by=-imdb_score,-votes&page_size=6";
+      const urlOther = url + "titles/?genre=" + selectedGenre + "&sort_by=-imdb_score,-votes&page_size=6";
       getData(urlOther).then((dataOther) => {
         fillFilmGrid("otherSection", dataOther.results);
       });
-    });
-    dropdown.appendChild(a);
+    }
   });
 });
