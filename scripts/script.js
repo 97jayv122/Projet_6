@@ -73,6 +73,13 @@ document.getElementById("modal_close").addEventListener("click", (e) => {
 document.getElementById("modal_close_button").addEventListener("click", (e) => {
   document.getElementById("modal").style.display = "none";
 })
+
+// Fermer la modale en cliquant en dehors du contenu
+document.getElementById("modal").addEventListener("click", function(e) {
+  if (e.target === this) {
+    this.style.display = "none";
+  }
+});
 // Charger le meilleur film
 getData(urlMovieBestScore)
   .then((data) => {

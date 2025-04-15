@@ -11,6 +11,21 @@ body {
   /* line-height: 1.8; */
 }
 
+main button {
+  background-color: rgb(250, 11, 11, 1);
+  border-radius: 25px;
+  color: white;
+  font-size: large;
+  padding: 5px 50px 5px 50px;
+  border: none;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+main button:hover {
+  opacity: 0.5;
+}
+
 .banniere h1 {
   font-size: 48px;
   font-weight: 300;
@@ -39,26 +54,20 @@ body {
   display: flex;
   border: 6px solid black;
 }
+
 .meilleurFilmDetails {
   display: flex;
   flex-direction: column;
 }
+
 .card-meilleurFilm h2 {
   grid-area: titre;
   object-fit: cover;
 }
 
-.film {
-  /* border: solid 1px red; */
-  width: 250px;
-  height: 250px;
-  text-align: center;
+.card-meilleurFilm p {
+  font-size: large;
   object-fit: cover;
-  position: relative;
-}
-
-main img:hover {
-  opacity: 0.5;
 }
 
 .card-meilleurFilm button {
@@ -71,16 +80,37 @@ main img:hover {
   font-size: large;
   font-weight: 700;
   object-fit: cover;
+  cursor: pointer;
+}
+
+.card-meilleurFilm button:hover {
+  opacity: 0.5;
+}
+
+.to-end {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: end;
+  flex-grow: 1;
+}
+
+.film {
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  object-fit: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.film img:hover {
+  opacity: 0.5;
 }
 
 main img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.card-meilleurFilm p {
-  font-size: large;
   object-fit: cover;
 }
 
@@ -90,34 +120,6 @@ main img {
   display: grid;
   margin: 0 auto;
   gap: 20px;
-}
-
-main button {
-  background-color: rgb(250, 11, 11, 1);
-  border-radius: 25px;
-  color: white;
-  font-size: large;
-  padding: 5px 50px 5px 50px;
-  border: none;
-  margin: 10px auto;
-}
-
-.flex-category {
-  display: flex;
-  align-items: center;
-}
-
-
-/* Style The Dropdown Button */
-.dropbtn {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 16px;
-  margin-left: 15px;
-  font-size: 22px;
-  border: none;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 }
 
 .details-film-grid {
@@ -137,6 +139,11 @@ main button {
   border: none;
   padding: 20px;
   z-index: 1;
+  cursor: pointer;
+}
+
+.details-film-grid:hover {
+  opacity: 0.8;
 }
 
 .film-hover {
@@ -154,15 +161,24 @@ main button {
   padding-left: 7%;
 }
 
-.to-end {
-  /* border: solid 2px red; */
+
+.flex-category {
   display: flex;
-  flex-direction: row;
-  align-items: end;
-  justify-content: end;
-  flex-grow: 1;
-  
+  align-items: center;
 }
+
+.dropbtn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  margin-left: 15px;
+  font-size: 22px;
+  border: 1px solid black;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+
 
 .modal { 
   display: none;
@@ -181,40 +197,40 @@ main button {
 
 /* Desktop (>=992 pixels : 3 colonnes et 2 lignes */
 @media (min-width: 992px) {
-  .film-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-
-  #imageMeilleurFilm {
-    width: 230px;
-    height: 330px;
-    margin: 17px 25px;
-  }
-
   body h2 {
     font-size: 48px;
     font-weight: 600;
     padding: 30px 0px 20px 0px;
   }
-
+  
+  #imageMeilleurFilm {
+    width: 230px;
+    height: 330px;
+    margin: 17px 25px;
+  }
+  
   .card-meilleurFilm h2 {
     font-size: 48px;
     padding: 8px 15px 0 20px;
   }
-
+  
   .card-meilleurFilm p {
     font-size: 28px;
     font-weight: 200;
     padding: 15px 30px 0 20px;
     margin: 0;
   }
-
+  
   .card-meilleurFilm button {
     padding: 20px 40px 20px 40px;
     font-size: large;
     border: none;
     margin: 20px 20px 20px 0;
+  }
+  
+  .film-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
   }
 
   .modal {
@@ -231,15 +247,10 @@ main button {
     margin: 0 auto;
     z-index: 1;
   }
-  /* 
-  .modal:target {
-    display: flex;
-  } */
-  
+
   .modal_content {
     display: grid;
     gap: 20px;
-    /* border : 2px red solid; */
     grid-template-columns: auto;
     grid-template-rows: auto;
     background: #fff;
@@ -250,14 +261,13 @@ main button {
     position: relative;
     overflow-y: auto;
   }
+
   .modal_header {
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
   
   #modal_image {
-    /* border : 2px red solid; */
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     width: 230px;
@@ -267,7 +277,6 @@ main button {
   #modal_description {
     font-size: 24px;
     font-weight: 300;
-    /* border : 2px red solid; */
     grid-column: 1 / 3;
     grid-row: 2 / 3;
   }
@@ -338,15 +347,19 @@ main button {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .banniere h1 {
+    font-size: 40px;
+    margin-left: 30px;
+  }
+
   body {
     width: 620px;
     margin: 10px auto;
   }
-
-
-  .banniere h1 {
+  
+  body h2 {
     font-size: 40px;
-    margin-left: 30px;
+    padding: 30px 0px 20px 0px;
   }
 
   .film-grid {
@@ -364,11 +377,6 @@ main button {
     width: 170px;
     height: 250px;
     margin: 10px 15px;
-  }
-
-  body h2 {
-    font-size: 40px;
-    padding: 30px 0px 20px 0px;
   }
 
   .card-meilleurFilm h2 {
@@ -400,8 +408,6 @@ main button {
 
   .modal_content {
     display: grid;
-    /* gap: 0px; */
-    /* border : 2px red solid; */
     grid-template-columns: auto;
     grid-template-rows: auto;
     background: #fff;
@@ -414,13 +420,11 @@ main button {
     overflow-y: auto
   }
   .modal_header {
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
   
   #modal_image {
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     width: 230px;
@@ -430,9 +434,9 @@ main button {
   #modal_description {
     font-size: 24px;
     font-weight: 300;
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    padding-bottom: 20px;
   }
   #modal_title {
     font-size: 48px;
@@ -457,7 +461,6 @@ main button {
   }
   
   .modal-actors {
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 4 / 5;
   }
@@ -483,60 +486,54 @@ main button {
     text-decoration: none;
     font-size: 48px;
     color: rgb(250, 11, 11, 1);
+    cursor: pointer;
   }
 }
 
 @media (max-width: 767px) {
-  .card-meilleurFilm {
-    display: flex;
-    border: 4px solid black;
-    flex-direction: column;
+  body {
+    width: 330px;
+    margin: 10px auto;
   }
-
-  #imageMeilleurFilm {
-    width: 300px;
-    height: 240px;
-    margin: 7px 10px 0px 10px;
-  }
-
+  
   .banniere h1 {
     display: none;
   }
-
+  
   .logo {
     margin: auto;
   }
-
-  .film-grid {
-    width: 330px;
-    height: auto;
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
+  
   body h2 {
     font-size: 32px;
     text-align: center;
     padding: 20px 0px 10px 0px;
   }
-
+  
+  .card-meilleurFilm {
+    display: flex;
+    border: 4px solid black;
+    flex-direction: column;
+  }
+  
+  #imageMeilleurFilm {
+    width: 300px;
+    height: 240px;
+    margin: 7px 10px 0px 10px;
+  }
+  
   .card-meilleurFilm h2 {
     font-size: 32px;
     text-align: left;
     padding: 15px 15px 0px 15px;
   }
-
-  body {
-    width: 330px;
-    margin: 10px auto;
-  }
-
+  
   .card-meilleurFilm p {
     font-size: 16px;
     font-weight: 200;
     padding: 0px 15px 20px 15px;
   }
-
+  
   .card-meilleurFilm button {
     display: block;
     padding: 10px 25px 10px 25px;
@@ -545,14 +542,21 @@ main button {
     margin-bottom: 10px;
     margin: 0 auto 15px auto;
   }
+  
+  .film-grid {
+    width: 330px;
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
   .film {
     width: 330px;
     height: 320px;
   }
+
   .modal_content {
     display: grid;
-    /* gap: 0px; */
-    /* border : 2px red solid; */
     grid-template-columns: auto;
     grid-template-rows: auto;
     background: #fff;
@@ -564,14 +568,13 @@ main button {
     position: relative;
     overflow-y: auto
   }
+  
   .modal_header {
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
   
   #modal_image {
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     width: 230px;
@@ -581,10 +584,11 @@ main button {
   #modal_description {
     font-size: 24px;
     font-weight: 300;
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    padding-bottom: 20px;
   }
+
   #modal_title {
     font-size: 48px;
     font-weight: 600;
@@ -608,7 +612,6 @@ main button {
   }
   
   .modal-actors {
-    /* border : 2px red solid; */
     grid-column: 1 / 2;
     grid-row: 4 / 5;
   }
@@ -634,5 +637,6 @@ main button {
     text-decoration: none;
     font-size: 48px;
     color: rgb(250, 11, 11, 1);
+    cursor: pointer;
   }
 }
